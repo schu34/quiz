@@ -1,6 +1,6 @@
 import React from 'react';
 import Question from './QuizQuestion'
-import './quiz.sass';
+import '../styles/quiz.sass';
 
 const Quiz = ({title, questions})=>( 
 <div>

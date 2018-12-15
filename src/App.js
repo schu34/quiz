@@ -1,10 +1,10 @@
 import React, {
   Component
 } from 'react';
-import logo from './logo.svg';
 import quizData from './quizData.json'
 import Quiz from './components/Quiz';
 import Error from './components/Error';
+import Page from './components/Page';
 import './App.scss';
 
 class App extends Component {
@@ -22,16 +22,22 @@ class App extends Component {
     })
   }
 
-  render() {
-    console.log(this);
-    const {
-      quizData
-    } = this.state;
+  renderInner(quizData){
 
     if (quizData) {
 
       return <Quiz {...quizData} / >
     } else return <Error / >
+  }
+
+  render() {
+    console.log(this);
+    const {
+      quizData
+    } = this.state;
+    return <Page>
+      {this.renderInner(quizData)}
+    </Page>
   }
 }
 
