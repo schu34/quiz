@@ -1,27 +1,37 @@
-import React, { Component } from 'react';
+import React, {
+  Component
+} from 'react';
 import logo from './logo.svg';
+import quizData from './quizData.json'
+import Quiz from './components/Quiz';
+import Error from './components/Error';
 import './App.scss';
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quizData: null,
+    }
+  }
+  componentDidMount() {
+    const path = window.location.pathname.split('/')[1];
+
+    this.setState({
+      quizData: quizData[path]
+    })
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+    console.log(this);
+    const {
+      quizData
+    } = this.state;
+
+    if (quizData) {
+
+      return <Quiz {...quizData} / >
+    } else return <Error / >
   }
 }
 
