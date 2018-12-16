@@ -40,7 +40,7 @@ export default class Quiz extends React.Component {
 
     console.log('render')
     return (
-      <div>
+      <div className="quiz-container">
         <h1>
           {title} {this.getEstimate(answers)}%
         </h1>
