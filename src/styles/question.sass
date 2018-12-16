@@ -1,16 +1,31 @@
 
-.q-answer-container
-	display: flex
-	flex-direction: column
-	button
-		height: 50px
-		background: lightBlue
-		font-size: 20px
-		border: 0
-		border-radius: 5px
-		margin-bottom: 5px
+.q-container
 
-		&:hover
-			background: lightGray
-		
+    color: #8e8d8a
+    .q-answer-container
+        display: flex
+        flex-direction: column
+        button
+            height: 50px
+            background: #d8cAA5
+            color: #8e8d8a
+            font-size: 20px
+            border: 0
+            border-radius: 5px
+            margin-bottom: 5px
+            transition: .1s all
+
+            &:hover
+                transition: .1s all
+                border: 1px solid #8e8d8a
+                background-color: #eae7dc
+            &:focus
+                outline: none;
+        
+        button.clicked
+            border: 1px solid #8e8d8a
+            background-color:#8e8d8a
+            color: #eae7dc
+            transition: .1s all
+
 
